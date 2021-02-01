@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll button</title>
+  </head>
+  <body>
+    <div class="jump">⇫</div>
+
+    <section class="section1">
+      Please scroll to the bottom and press button (bottom right side) and
+      screen will scroll up automatically...
+    </section>
+    <section class="section2">Part 2</section>
+    <section class="section3">Part 3</section>
+    <section class="section4">Part 4</section>
+    <section class="section5">Part 5</section>
+    <section class="section6">Part 6</section>
+    <section class="section7">Part 7</section>
+    <section class="section8">Part 8</section>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+        font-family: "Fredoka One", cursive;
+      }
+
+      section {
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 40px;
+        letter-spacing: 2px;
+        color: #000000;
+      }
+
+      .section1 {
+        background: #ff0400;
+      }
+      .section2 {
+        background: #ff7300;
+      }
+      .section3 {
+        background: #ffe600;
+      }
+      .section4 {
+        background: #09ff00;
+      }
+      .section5 {
+        background: #00fff2;
+      }
+      .section6 {
+        background: #0059ff;
+      }
+      .section7 {
+        background: #b700ff;
+      }
+      .section8 {
+        background: #ff009d;
+      }
+
+      .jump {
+        width: 70px;
+        height: 70px;
+        bottom: 25px;
+        right: 25px;
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        font-size: 42px;
+        border-radius: 50px;
+        border: 7px double #fd8cce;
+        background-color: #ffc7ea;
+        color: #2f00ff;
+        transition: all 0.5s linear;
+      }
+    </style>
+
+    <script>
+      function init() {
+        const btn = document.querySelector(".jump");
+
+        function jumpScroll() {
+          if (window.pageYOffset > 400) {
+            btn.style.transform = "scale(1)";
+          } else {
+            btn.style.transform = "scale(0)";
+          }
+        }
+
+        window.addEventListener("scroll", jumpScroll);
+
+        function scrollUp() {
+          window.scrollTo(0, 0);
+        }
+
+        btn.addEventListener("click", scrollUp);
+      }
+
+      window.addEventListener("DOMContentLoaded", init);
+    </script>
+  </body>
+</html>
